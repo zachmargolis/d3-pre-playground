@@ -36,19 +36,21 @@ getData(function(data) {
     .attr('r', 5)
 
   d3.select('.scramble')
-    .on('click', scramble)})
+    .on('click', scramble)
 
-function scramble() {
-  data.forEach(function(d) {
-    d[0] = randInt(1, 3)
-    d[1] = randInt(1, 3)
-  });
+  function scramble() {
+    data.forEach(function(d) {
+      d[0] = randInt(1, 3)
+      d[1] = randInt(1, 3)
+    });
 
-  allcircles
-    .transition()
-      .attr('cx', function(d) { return 10 * d[0] })
-      .attr('cy', function(d) { return 10 * d[1] })
-}
+    allcircles
+      .transition()
+        .attr('cx', function(d) { return 10 * d[0] })
+        .attr('cy', function(d) { return 10 * d[1] })
+  }
+});
+
 
 function randInt(min, max) {
   return min + Math.floor(max * Math.random());
